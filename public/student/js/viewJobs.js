@@ -20,11 +20,14 @@ $searchbutton.addEventListener('click',async (e)=>{
   const searchterm = search.value.toLowerCase();
   //console.log(searchterm);
   var result = await fetch('/jobs', {
-    method: 'GET',
+    method: 'POST',
     headers: {
         'Content-Type': 'application/json',
         'Authorization':'Bearer '+token
-    }
+    },
+    body: JSON.stringify({
+           
+        })
   }).then((res) => res.json())
   //console.log(result);
   
@@ -90,11 +93,14 @@ $searchbutton.addEventListener('click',async (e)=>{
 window.onload=async()=>{
     console.log("onload") 
     const result = await fetch('/jobs', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization':'Bearer '+token
-        }
+        },
+              body: JSON.stringify({
+           
+        })
     }).then((res) => res.json())
 
 
