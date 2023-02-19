@@ -237,7 +237,7 @@ router.post("/company/addjob",auth,upload.single('aboutcompany'),async(req,res)=
     })
  }) 
 
- router.get("/jobs",studentAuth,async(req,res)=>{
+ router.get("/jobs",studentAuth,async(res)=>{
     job.find().then((jobs)=>{
         //console.log(jobs)
         res.status(200).json(jobs)
