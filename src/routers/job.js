@@ -226,7 +226,7 @@ router.post("/company/addjob",auth,upload.single('aboutcompany'),async(req,res)=
          res.status(400).send({error:e})
      }
  })
- router.post("/jobs",studentAuth,async(req,res)=>{
+ router.post("/jobs",async(req,res)=>{
     job.find().then((jobs)=>{
         //console.log(jobs)
         res.status(200).json(jobs)
