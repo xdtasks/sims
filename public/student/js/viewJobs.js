@@ -19,15 +19,15 @@ $searchbutton.addEventListener('click',async (e)=>{
   const salary = document.getElementById('salary').value
   const searchterm = search.value.toLowerCase();
   //console.log(searchterm);
-  var result = await fetch('/jobs', {
+  const result = await fetch('/jobs', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
         'Authorization':'Bearer '+token
     },
     body: JSON.stringify({
-           
-        })
+ 
+})
   }).then((res) => res.json())
   //console.log(result);
   
@@ -37,10 +37,7 @@ $searchbutton.addEventListener('click',async (e)=>{
   // console.log(job)
  // return filtertype == 1 ? job.companyname.toLowerCase().includes(searchterm) : filtertype == 2 ? job.title.toLowerCase().includes(searchterm) : filtertype == 3 ? job.yoe.toString().includes(searchterm) : job.worktype.toLowerCase().includes(searchterm)
  if(searchterm) {
-  searchterm.innerHTML = " ";
-  document.getElementById('searchbox').innerHTML = " "
-  document.getElementById('searchbox').innerText = " jii"
-  return  job.yoe.toString().includes(searchterm.toString()) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm) || job.empbenefits.toString().includes(searchterm)
+  return  parseInt(job.yoe) == parseInt(searchterm) || job.companyname.toLowerCase().includes(searchterm) || job.title.toLowerCase().includes(searchterm) || job.worktype.toLowerCase().includes(searchterm)// || job.empbenefits.toString().includes(searchterm)
  }
   let b = job
  // console.log(b.companyname.toLowerCase().includes(companyName.toLowerCase()))
@@ -51,6 +48,7 @@ $searchbutton.addEventListener('click',async (e)=>{
           if(salary && b.empbenefits.toString().includes(salary.toString().toLowerCase())){
             console.log(b.companyname)
             return b.companyname
+
           }
         }
       }
@@ -58,8 +56,8 @@ $searchbutton.addEventListener('click',async (e)=>{
   }
   }
 
-  console.log("Filter title function")
-  console.log(filterTitleFunction)
+  
+  
   const filteredResult = result.filter(filterTitleFunction)
 
   const mappedUsers = filteredResult.map((job, index) => {
@@ -79,14 +77,12 @@ $searchbutton.addEventListener('click',async (e)=>{
   </div>`;
   });
 
+  console.log(filteredResult)
   if(mappedUsers.length>0){
     usersContainer.innerHTML = mappedUsers
 }
   else{
-    alert("no matching results") 
-    //    usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
-      
-     //  location.href="/student/viewjobs.html"
+    alert("no matching results")
   }
 })
 
@@ -98,7 +94,7 @@ window.onload=async()=>{
             'Content-Type': 'application/json',
             'Authorization':'Bearer '+token
         },
-              body: JSON.stringify({
+        body: JSON.stringify({
            
         })
     }).then((res) => res.json())
@@ -134,27 +130,6 @@ window.onload=async()=>{
       else{
         alert("Applications Empty") 
         //    usersContainer.innerHTML = "<h1>There are no pending applications to review, Please comeback later!</h1>"
-           location.href="/student/studentindex.html"
+          // location.href="../student/studentindex.html"
       }
-
 }
- 
-
-  
-
-
-
-
-
-
-// var list = document.createElement('ul');
-
-// Create a list item for each wizard
-// and append it to the list
-// result.forEach(function (res) {
-// 	// var li = document.createElement('li');
-// 	// li.textContent = wizard;
-// 	// list.appendChild(li);
-//     console.log(res)
-// });
- 
