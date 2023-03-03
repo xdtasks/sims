@@ -60,7 +60,7 @@ if(a5)
 a = arr.length     
 for(let i=0; i< a ; i++){
 c = Object.values(b)
-if(c.includes(arr[i].toString().toLowerCase()) || c[4] == a5){
+if(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase()) || c[4] == a5){
  flag = true
 }
 else{
@@ -69,8 +69,8 @@ else{
     }
   }
 if(flag == true){
- console.log(b.companyName)
- return b.companyName
+ console.log(b.companyname)
+ return b.companyname
   }
 
 
