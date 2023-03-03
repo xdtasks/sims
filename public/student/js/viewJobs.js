@@ -41,19 +41,42 @@ $searchbutton.addEventListener('click',async (e)=>{
  }
   let b = job
  // console.log(b.companyname.toLowerCase().includes(companyName.toLowerCase()))
-  if(companyName && b.companyname.toLowerCase().includes(companyName.toLowerCase())){
-    if(jobTitle && b.title.toLowerCase().includes(jobTitle.toLowerCase())){
-      if(Exp && b.yoe == Exp){
-        if(jobType && b.worktype.toString().includes(jobType.toLowerCase())){
-          if(salary && b.empbenefits.toString().includes(salary.toString().toLowerCase())){
-            console.log(b.companyname)
-            return b.companyname
+ 
 
-          }
-        }
-      }
+let flag , a
+let arr = []
+let a1 = companyName , a2 = jobTitle , a3 = Exp , a4 = jobType , a5 = salary
+if(a1)
+ arr.push(a1.toLowerCase())
+if(a2)
+ arr.push(a2.toLowerCase())
+if(a3)
+ arr.push(a3)
+if(a4)
+ arr.push(a4.toLowerCase())
+if(a5)
+ arr.push(a5)
+
+a = arr.length     
+for(let i=0; i< a ; i++){
+c = Object.values(b)
+if(c.includes(arr[i].toString().toLowerCase()) || c[4] == a5){
+ flag = true
+}
+else{
+ flag = false
+ break
     }
   }
+if(flag == true){
+ console.log(b.companyName)
+ return b.companyName
+  }
+
+
+
+
+
   }
 
   
