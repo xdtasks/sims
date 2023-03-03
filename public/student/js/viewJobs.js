@@ -52,15 +52,19 @@ if(a2)
  arr.push(a2.toLowerCase())
 if(a3)
  arr.push(a3)
+else
+ a3 = 0
 if(a4)
  arr.push(a4.toLowerCase())
 if(a5)
  arr.push(a5)
+else 
+ a5 = 0
 
 a = arr.length     
 for(let i=0; i< a ; i++){
 c = Object.values(b)
-if(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase()) || c[4] == a5){
+if(c.toString().toLowerCase().includes(arr[i].toString().toLowerCase()) || c[4] == a5 || c[2] == a3){
  flag = true
 }
 else{
