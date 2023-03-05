@@ -26,7 +26,7 @@ $postjob.addEventListener("submit",async(e)=>{
     formData.append("emptype",$emptype)
     formData.append("worktype",$worktype)
     formData.append("empbenefits",$empbenefits)
-    formData.append("aboutcompany",$aboutcompany.files[0])
+ //   formData.append("aboutcompany",$aboutcompany.files[0])
     formData.append("postedby",$postedby)
     const result = await fetch('/company/addjob', {
         method: 'POST',
