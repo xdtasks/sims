@@ -23,7 +23,6 @@ app.use(adminRouter)
 app.use(jobsRouter)
 app.use(contactRouter)
 
-
 app.listen(port,()=>{
     console.log("server is up and running on ",port)
 })

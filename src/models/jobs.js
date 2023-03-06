@@ -50,11 +50,12 @@ const jobSchema = mongoose.Schema({
     postedby:{
         type:ObjectId,
         ref:'company'
-    },
+    }, 
     aboutcompany:{
         companyData: Buffer,
         contentType: String
-    }  
+    }
+    
 })
 
 //userdef function for hiding private data

@@ -226,7 +226,7 @@ router.post("/company/addjob",auth,upload.single('aboutcompany'),async(req,res)=
          res.status(400).send({error:e})
      }
  })
- router.post("/jobs",async(req,res)=>{
+ router.post("/jobs",studentAuth,async(req,res)=>{
     job.find().then((jobs)=>{
         //console.log(jobs)
         res.status(200).json(jobs)
@@ -236,7 +236,6 @@ router.post("/company/addjob",auth,upload.single('aboutcompany'),async(req,res)=
         res.status(400).send({error:"unable to get jobs"})
     })
  }) 
-  
 router.post("/apply/:jobid",studentAuth,upload.single('resume'),async(req,res)=>{
     const jobid = req.params.jobid
     //console.log(jobid)
